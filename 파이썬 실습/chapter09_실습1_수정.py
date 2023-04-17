@@ -1,5 +1,8 @@
 from turtle import *
 import random
+import turtle
+
+# 클릭한 부분의 반대 방향으로 도망가기
 
 colorList = ['red', 'blue', 'orange', 'purple', 'brown', 'pink', 'green']
 
@@ -7,7 +10,8 @@ colorList = ['red', 'blue', 'orange', 'purple', 'brown', 'pink', 'green']
 class MyTurtle(Turtle):
     def run(self, x, y):
         self.fillcolor(random.choice(colorList))
-        self.right(random.randrange(0, 360))
+        r = self.towards(x, y)
+        self.setheading(r + 180)
         total_move = random.randrange(10, 100)
         a = 0
         b = 0
@@ -25,4 +29,7 @@ class MyTurtle(Turtle):
 t = MyTurtle()
 t.shape("turtle")
 t.width(3)
-t.onclick(t.run)
+
+s = turtle.Screen()
+s.onscreenclick(t.run)
+s.listen()
