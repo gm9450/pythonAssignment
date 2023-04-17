@@ -25,10 +25,24 @@ class MyTurtle(Turtle):
             self.right(180)
             self.fd(10)
 
+    def squ(self):
+        self.penup()
+        self.goto(-400, -400)
+        self.pendown()
+        self.goto(-400, 400)
+        self.goto(400, 400)
+        self.goto(400, -400)
+        self.goto(-400, -400)
+        self.penup()
+        self.goto(0, 0)
+        self.pendown()
+
 
 t = MyTurtle()
 t.shape("turtle")
 t.width(3)
+
+t.squ()
 
 s = turtle.Screen()
 s.onscreenclick(t.run)
